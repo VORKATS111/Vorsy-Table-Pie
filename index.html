@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorsy Table Pie - Online Ordering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8f0;
+      color: #333;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      font-size: 36px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      color: #ffe5d4;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+    /* Hero section */
+    .hero {
+      background: linear-gradient(135deg, #fceabb, #ff9966);
+      text-align: center;
+      padding: 60px 20px;
+      color: #fff;
+    }
+    .hero h2 { font-size: 36px; text-shadow: 2px 2px #000; }
+    .hero p { font-size: 20px; margin-bottom: 30px; text-shadow: 1px 1px #000; }
+    .btn-order {
+      display: inline-block;
+      background: #d32f2f;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    .btn-order:hover { background: #a50d0d; }
+    /* Order form */
+    .order-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .order-container input, .order-container select, button {
+      padding: 10px;
+      margin: 8px 0;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .button-box { margin-top: 15px; }
+    .button-box button {
+      width: 60%;
+      background: #d32f2f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 8px;
+    }
+    .button-box button:hover { background: #a50d0d; }
+    #pizzaImage {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: 2px solid #d32f2f;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    table th { background: #d32f2f; color: white; }
+    /* Process and Flowchart */
+    ol { max-width: 800px; margin: auto; }
+    svg { width: 100%; max-width: 1000px; display: block; margin: 20px auto; }
+    footer { text-align: center; padding: 15px; background: #d32f2f; color: white; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍕 Vorsy Table Pie</h1>
+    <p>Fresh, Hot, and Affordable Pizza Delivered to Your Door!</p>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#order">Order Now</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#flowchart">Flowchart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <h2>Welcome to Vorsy Table Pie!</h2>
+    <p>Order your favorite pizza online and get it delivered hot and fresh right to your door.</p>
+    <a href="#order" class="btn-order">Order Now 🍕</a>
+
+    <!-- Menu with pizza images -->
+    <h2>Our Menu</h2>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
+      <div style="text-align:center;">
+        <img src="https://images.unsplash.com/photo-1601924582975-7e1e98d9f9d2" alt="Pepperoni" style="width:150px; height:150px; border-radius:10px;">
+        <p>Pepperoni Pizza - ₱120</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="https://images.unsplash.com/photo-1600628422011-4127c05f986d" alt="Hawaiian" style="width:150px; height:150px; border-radius:10px;">
+        <p>Hawaiian Pizza - ₱130</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="https://images.unsplash.com/photo-1548365328-7361b26c5f9e" alt="Cheese" style="width:150px; height:150px; border-radius:10px;">
+        <p>Cheese Pizza - ₱100</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="https://images.unsplash.com/photo-1576458088442-8da5ba7cd0c9" alt="Veggie" style="width:150px; height:150px; border-radius:10px;">
+        <p>Veggie Pizza - ₱110</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order">
+    <h2>Pizza Order Form</h2>
+    <div class="order-container">
+      <form id="orderForm" onsubmit="addOrder(event)">
+        <input type="text" id="customerName" placeholder="Customer Name" required>
+        <input type="text" id="contact" placeholder="Contact Number" required>
+        <input type="text" id="address" placeholder="Delivery Address" required>
+        <select id="pizzaType" onchange="updateImage()" required>
+          <option value="">Select Pizza</option>
+          <option value="Pepperoni">Pepperoni</option>
+          <option value="Hawaiian">Hawaiian</option>
+          <option value="Cheese">Cheese</option>
+          <option value="Veggie">Veggie</option>
+        </select>
+        <select id="pizzaSize" required>
+          <option value="">Select Size</option>
+          <option value="Small">Small - ₱120</option>
+          <option value="Medium">Medium - ₱200</option>
+          <option value="Large">Large - ₱280</option>
+        </select>
+        <input type="number" id="quantity" min="1" value="1" required>
+        <input type="date" id="date" required>
+        <input type="time" id="time" required>
+        <img id="pizzaImage" src="" alt="Pizza Preview">
+        <div class="button-box">
+          <button type="submit">Place Order</button>
+        </div>
+      </form>
+    </div>
+    <h2>Orders List</h2>
+    <table id="orderTable">
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Pizza</th>
+        <th>Size</th>
+        <th>Qty</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Total ₱</th>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <h2>Steps to Order Pizza</h2>
+    <ol>
+      <li>Open the homepage.</li>
+      <li>Fill out the order form with details (name, pizza type, size, quantity, address).</li>
+      <li>Select delivery date and time.</li>
+      <li>Submit order → system validates inputs.</li>
+      <li>Total price is calculated automatically.</li>
+      <li>Order is added to the Orders List below the form.</li>
+      <li>Enjoy your pizza!</li>
+    </ol>
+  </section>
+
+  <!-- FLOWCHART -->
+  <section id="flowchart">
+    <h2>Ordering Flowchart</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#d32f2f" />
+        </marker>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.15"/>
+        </filter>
+      </defs>
+      <!-- Flowchart rectangles -->
+      <rect x="360" y="40" width="480" height="80" rx="40" fill="#ffb997" filter="url(#shadow)"/>
+      <text x="600" y="92" text-anchor="middle" font-size="24" font-weight="bold" fill="white">Start</text>
+      <rect x="250" y="180" width="700" height="100" rx="20" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="235" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Open Homepage</text>
+      <rect x="300" y="320" width="600" height="80" rx="18" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="370" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Go to Order Page</text>
+      <rect x="200" y="460" width="800" height="100" rx="20" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="510" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Fill Out Order Form</text>
+      <text x="600" y="535" text-anchor="middle" font-size="16" fill="#333">(Name, Pizza Type, Size, Qty, Address)</text>
+      <polygon points="600,620 720,700 600,780 480,700" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="710" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Validate Input</text>
+      <rect x="300" y="820" width="600" height="80" rx="18" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="870" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Calculate Total Price</text>
+      <rect x="300" y="940" width="600" height="90" rx="18" fill="#fff" stroke="#d32f2f" stroke-width="3" filter="url(#shadow)"/>
+      <text x="600" y="990" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Save Order Data</text>
+      <text x="600" y="1015" text-anchor="middle" font-size="16" fill="#333">(Local storage)</text>
+      <rect x="360" y="1080" width="480" height="80" rx="40" fill="#ffb997" filter="url(#shadow)"/>
+      <text x="600" y="1130" text-anchor="middle" font-size="24" font-weight="bold" fill="white">End</text>
+      <g stroke="#d32f2f" stroke-width="3" fill="none" marker-end="url(#arrow)">
+        <path d="M600 120 L600 180" />
+        <path d="M600 280 L600 320" />
+        <path d="M600 400 L600 460" />
+        <path d="M600 560 L600 620" />
+        <path d="M600 780 L600 820" />
+        <path d="M600 900 L600 940" />
+        <path d="M600 1030 L600 1080" />
+      </g>
+    </svg>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Vorsy Table Pie</p>
+  </footer>
+
+  <script>
+    const pizzaImages = {
+      "Pepperoni":"https://images.unsplash.com/photo-1601924582975-7e1e98d9f9d2",
+      "Hawaiian":"https://images.unsplash.com/photo-1600628422011-4127c05f986d",
+      "Cheese":"https://images.unsplash.com/photo-1548365328-7361b26c5f9e",
+      "Veggie":"https://images.unsplash.com/photo-1576458088442-8da5ba7cd0c9"
+    };
+
+    function updateImage() {
+      const type = document.getElementById("pizzaType").value;
+      document.getElementById("pizzaImage").src = pizzaImages[type] || "";
+    }
+
+    function addOrder(event){
+      event.preventDefault();
+      const name = document.getElementById("customerName").value;
+      const contact = document.getElementById("contact").value;
+      const address = document.getElementById("address").value;
+      const pizza = document.getElementById("pizzaType").value;
+      const size = document.getElementById("pizzaSize").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      if(!name || !contact || !address || !pizza || !size || !quantity || !date || !time){
+        alert("Please fill out all fields!");
+        return;
+      }
+      let price = size==="Small"?120:size==="Medium"?200:280;
+      let total = price * quantity;
+      const table = document.getElementById("orderTable");
+      const row = table.insertRow();
+      row.insertCell(0).innerText = name;
+      row.insertCell(1).innerText = contact;
+      row.insertCell(2).innerText = address;
+      row.insertCell(3).innerText = pizza;
+      row.insertCell(4).innerText = size;
+      row.insertCell(5).innerText = quantity;
+      row.insertCell(6).innerText = date;
+      row.insertCell(7).innerText = time;
+      row.insertCell(8).innerText = "₱"+total;
+      document.getElementById("orderForm").reset();
+      document.getElementById("pizzaImage").src="";
+    }
+  </script>
+</body>
+  </html>
